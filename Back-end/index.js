@@ -3,7 +3,7 @@ const admin = require('firebase-admin');
 const cors = require('cors');
 
 // Initialize Firebase Admin SDK
-const serviceAccount = require('./birth-death-99caf-firebase-adminsdk-fbsvc-0b9c10a1fb.json');  // <-- Make sure you downloaded it!
+const serviceAccount = require('./medic_key.json');  // <-- Make sure you downloaded it!
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
