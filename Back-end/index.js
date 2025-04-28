@@ -28,8 +28,8 @@ const PORT = process.env.PORT || 3000;
 // Add Admin
 app.post('/addAdmin', async (req, res) => {
   try {
-    const { name, email } = req.body;
-    const docRef = await db.collection('Admins').add({ name, email, createdAt: admin.firestore.FieldValue.serverTimestamp() });
+    const { name, email, password } = req.body;
+    const docRef = await db.collection('Admins').add({ name, email, password, createdAt: admin.firestore.FieldValue.serverTimestamp() });
     res.status(201).send({ id: docRef.id, message: 'Admin added' });
   } catch (error) {
     res.status(500).send({ error: error.message });
@@ -40,8 +40,8 @@ app.post('/addAdmin', async (req, res) => {
 // Add Hospital
 app.post('/addHospital', async (req, res) => {
   try {
-    const { name, location, email } = req.body;
-    const docRef = await db.collection('Hospitals').add({ name, location, email, createdAt: admin.firestore.FieldValue.serverTimestamp() });
+    const { name, location, email, password } = req.body;
+    const docRef = await db.collection('Hospitals').add({ name, location, email, password, createdAt: admin.firestore.FieldValue.serverTimestamp() });
     res.status(201).send({ id: docRef.id, message: 'Hospital added' });
   } catch (error) {
     res.status(500).send({ error: error.message });
